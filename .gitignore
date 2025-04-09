@@ -12,8 +12,11 @@
 .swiftpm/
 migrate_working_dir/
 
-.assets
-/assets
+.assets/videos/*.mp4
+/assets/videos/*.mp4
+assets/videos/*.mp4
+*.mp4
+
 
 # IntelliJ related
 *.iml
