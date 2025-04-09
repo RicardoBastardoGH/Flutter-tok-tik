@@ -1,9 +1,10 @@
+
 import 'package:flutter/material.dart';
 
 class VideoBackground extends StatelessWidget {
   
   final List<Color> colors ;
-  final List<float> stops;
+  final List<double> stops;
 
   const VideoBackground({super.key,
     this.colors = const [
