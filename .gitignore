@@ -12,10 +12,13 @@
 .swiftpm/
 migrate_working_dir/
 
-.assets/videos/*.mp4
-/assets/videos/*.mp4
-assets/videos/*.mp4
+.assets/
+/assets/
+assets/
 *.mp4
+
+# No subiré los videos
+assets/videos/*.mp4
 
 
 # IntelliJ related
