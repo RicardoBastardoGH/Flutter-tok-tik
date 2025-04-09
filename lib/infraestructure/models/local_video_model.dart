@@ -4,28 +4,30 @@
 
 import 'dart:convert';
 
-LocalVideoPost videoPostFromJson(String str) => LocalVideoPost.fromJson(json.decode(str));
+import 'package:tok_tik/domain/entities/video_post.dart';
 
-String videoPostToJson(LocalVideoPost data) => json.encode(data.toJson());
+LocalVideoModel videoPostFromJson(String str) => LocalVideoModel.fromJson(json.decode(str));
 
-class LocalVideoPost {
+String videoPostToJson(LocalVideoModel data) => json.encode(data.toJson());
+
+class LocalVideoModel {
     final String name;
     final String videoUrl;
     final int likes;
     final int views;
 
-    LocalVideoPost({
+    LocalVideoModel({
         required this.name,
         required this.videoUrl,
-        required this.likes,
-        required this.views,
+        this.likes = 0,
+        this.views = 0,
     });
 
-    factory LocalVideoPost.fromJson(Map<String, dynamic> json) => LocalVideoPost(
-        name: json["name"],
+    factory LocalVideoModel.fromJson(Map<String, dynamic> json) => LocalVideoModel(
+        name: json["name"] ?? 'No name',
         videoUrl: json["videoUrl"],
-        likes: json["likes"],
-        views: json["views"],
+        likes: json["likes"] ?? 0,
+        views: json["views"] ?? 0,
     );
 
     Map<String, dynamic> toJson() => {
@@ -34,4 +36,11 @@ class LocalVideoPost {
         "likes": likes,
         "views": views,
     };
+
+    VideoPost toVideoPostEntity() => VideoPost(
+      caption: name,
+      videoUrl: videoUrl,
+      likes: likes,
+      views: views,
+    );
 }
